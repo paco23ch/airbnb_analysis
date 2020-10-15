@@ -24,19 +24,19 @@ All code is stored in `AirBnB Analysis.ipynb` and uses the following libraries:
 
 # Files
 
-Boston - Directory with Boston Data
-Seattle - Directory with Seattle Data
-AirBnB Analysis.ipynb - Main jupyter notebook
-AirBnB Analysis.html - HTML version of the current jupyter notebook
-airbnb-678x381.jpg - Airbnb logo
-average_availability.png - Average Availability graph
-average_price.png - Average price graph
-boston_heatmap.png - Boston heatmap
-boston_prices.png - Boston prices image
-city_prices.png - City prices image
-pexels-photo-106399.jpeg - Secondary image
-property_types_heatmap.png - Property types heatmap
-README.md - This readme file
-room_type_heatmap.png - Room type heatmap
-seattle_prices.png - Seattle prices image.
+- Boston - Directory with Boston Data
+- Seattle - Directory with Seattle Data
+- AirBnB Analysis.ipynb - Main jupyter notebook
+- AirBnB Analysis.html - HTML version of the current jupyter notebook
+- airbnb-678x381.jpg - Airbnb logo
+- average_availability.png - Average Availability graph
+- average_price.png - Average price graph
+- boston_heatmap.png - Boston heatmap
+- boston_prices.png - Boston prices image
+- city_prices.png - City prices image
+- pexels-photo-106399.jpeg - Secondary image
+- property_types_heatmap.png - Property types heatmap
+- README.md - This readme file
+- room_type_heatmap.png - Room type heatmap
+- seattle_prices.png - Seattle prices image.
 
