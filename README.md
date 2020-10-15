@@ -2,6 +2,12 @@
 
 This project seeks to understand the Boston and Seattle markets.  The data available is for 2016 and 2017 in different date ranges.
 
+# Medium post
+
+Here's the link to the medium post result of this analysis.
+
+https://paco23ch.medium.com/how-does-boston-and-seattle-airbnb-markets-compare-53be5792a50e
+
 # Business Questions
 
 Some of the questions we could be answering based on the data are as follows:
