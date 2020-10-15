@@ -19225,6 +19225,16 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 <span class="n">all_listings_clean</span> <span class="o">=</span> <span class="n">all_listings</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">encode_categorical</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Description: This function will encode categorical variables using pd.get_dummies()</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        df: Dataframe to be encoded</span>
+<span class="sd">        columns: List of columns to be encoded</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        df: a new DataFrame with the encoded columns, and removing the requested original columns.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Processing </span><span class="si">{}</span><span class="s1">...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">))</span>
         <span class="n">col_dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">],</span><span class="n">prefix</span><span class="o">=</span><span class="n">col</span><span class="p">,</span><span class="n">prefix_sep</span><span class="o">=</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
@@ -19236,6 +19246,16 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
     <span class="k">return</span> <span class="n">df</span>
 
 <span class="k">def</span> <span class="nf">delete_categorical</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Description: This function will delete certain categorical variables</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        df: Dataframe where to remove the column from</span>
+<span class="sd">        columns: List of columns to be removed</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        df: a new DataFrame without the requested columns.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1">#all_listings_clean = encode_categorial(all_listings_clean)</span>
@@ -19266,6 +19286,17 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">columns_explode</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;amenities&#39;</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">encode_explosions</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Description: This function will encode columns that contain multiple CSV values in the same column </span>
+<span class="sd">                 using pd.get_dummies()</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        df: Dataframe to be encoded</span>
+<span class="sd">        columns: List of columns to be encoded</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        df: a new DataFrame with the encoded columns, and removing the requested original columns.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Processing </span><span class="si">{}</span><span class="s1">...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">))</span>
         <span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="n">col</span><span class="p">]]</span>
@@ -20549,7 +20580,7 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[83]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">monthly_summary</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;year_month&#39;</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;available&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
@@ -20588,7 +20619,7 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">monthly_summary</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;year_month&#39;</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
@@ -20710,7 +20741,7 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[79]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings_by_city</span> <span class="o">=</span> <span class="n">all_listings</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;state&#39;</span><span class="p">,</span><span class="s1">&#39;city&#39;</span><span class="p">],</span><span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()[[</span><span class="s1">&#39;state&#39;</span><span class="p">,</span><span class="s1">&#39;city&#39;</span><span class="p">,</span><span class="s1">&#39;price&#39;</span><span class="p">]]</span>
@@ -20754,7 +20785,7 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
@@ -20803,7 +20834,7 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings_clean</span>
@@ -20819,7 +20850,7 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[51]:</div>
+    <div class="prompt output_prompt">Out[52]:</div>
 
 
 
@@ -21480,7 +21511,7 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings_complete</span> <span class="o">=</span> <span class="n">all_listings_clean</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">availability</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;listing_id&#39;</span><span class="p">)</span>
@@ -21498,7 +21529,7 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[52]:</div>
+    <div class="prompt output_prompt">Out[53]:</div>
 
 
 
@@ -22168,7 +22199,7 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings_complete</span> <span class="o">=</span> <span class="n">all_listings_complete</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;monthly_price&#39;</span><span class="p">,</span><span class="s1">&#39;weekly_price&#39;</span><span class="p">,</span><span class="s1">&#39;security_deposit&#39;</span><span class="p">,</span><span class="s1">&#39;cleaning_fee&#39;</span><span class="p">,</span><span class="s1">&#39;guests_included&#39;</span><span class="p">,</span><span class="s1">&#39;extra_people&#39;</span><span class="p">,</span><span class="s1">&#39;cancellation_policy&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -22185,7 +22216,7 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[53]:</div>
+    <div class="prompt output_prompt">Out[54]:</div>
 
 
 
@@ -22491,7 +22522,7 @@ Boston zipcode, 41: [&#39;02131&#39; nan &#39;02130&#39; &#39;02119&#39; &#39;02
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
@@ -22580,7 +22611,7 @@ Total 22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">delete_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;host_listings_count&#39;</span><span class="p">,</span><span class="s1">&#39;square_feet&#39;</span><span class="p">,</span><span class="s1">&#39;zipcode&#39;</span><span class="p">,</span><span class="s1">&#39;room_type&#39;</span><span class="p">,</span><span class="s1">&#39;bed_type&#39;</span><span class="p">,</span>
@@ -22600,7 +22631,7 @@ Total 22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">delete_columns</span><span class="o">+</span><span class="n">impute_mean</span><span class="o">+</span><span class="n">delete_rows</span><span class="o">+</span><span class="n">impute_zero</span><span class="p">)</span>
@@ -22616,7 +22647,7 @@ Total 22
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[56]:</div>
+    <div class="prompt output_prompt">Out[57]:</div>
 
 
 
@@ -22633,7 +22664,7 @@ Total 22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Delete columns</span>
@@ -22647,7 +22678,7 @@ Total 22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Impute with the mean</span>
@@ -22688,7 +22719,7 @@ Imputing host_response_rate ...
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Delete empty rows for cette columns</span>
@@ -22726,7 +22757,7 @@ Deleteing rows for empty property_type ...
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Impute with the mean</span>
@@ -22763,7 +22794,7 @@ Imputing reviews_per_month ...
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
@@ -22800,7 +22831,7 @@ Imputing reviews_per_month ...
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings_complete</span><span class="o">.</span><span class="n">shape</span>
@@ -22816,7 +22847,7 @@ Imputing reviews_per_month ...
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[62]:</div>
+    <div class="prompt output_prompt">Out[63]:</div>
 
 
 
@@ -22833,7 +22864,7 @@ Imputing reviews_per_month ...
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings_complete</span>
@@ -22849,7 +22880,7 @@ Imputing reviews_per_month ...
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[63]:</div>
+    <div class="prompt output_prompt">Out[64]:</div>
 
 
 
@@ -23338,7 +23369,7 @@ Imputing reviews_per_month ...
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings_seattle</span> <span class="o">=</span> <span class="n">all_listings_complete</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;state == &quot;WA&quot;&#39;</span><span class="p">)</span>
@@ -23375,7 +23406,7 @@ Processing state...
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings_boston</span> <span class="o">=</span> <span class="n">all_listings_complete</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;state == &quot;MA&quot;&#39;</span><span class="p">)</span>
@@ -23412,10 +23443,24 @@ Processing state...
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">assess_factors</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">absolute</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Description: This function will assess the coefficients associated to Linear Regresions</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        df: Dataframe to be analyzed</span>
+<span class="sd">        result: y column of the dataset</span>
+<span class="sd">        test_size: Size of the test sample for the train/test split</span>
+<span class="sd">        random_state: random state to pass on to the train_test_split() function</span>
+<span class="sd">        absolute: sort on absolute or regular coefficients</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        df: a new DataFrame with the coefficients and each of the column factors</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
     <span class="c1">#df[df.columns] = StandardScaler().fit_transform(df)</span>
     
     <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">result</span><span class="p">]</span>
@@ -23456,7 +23501,7 @@ Processing state...
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">assess_factors</span><span class="p">(</span><span class="n">all_listings_seattle</span><span class="p">,</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="n">absolute</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -23484,7 +23529,7 @@ Test score: 0.6030149590820955
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[67]:</div>
+    <div class="prompt output_prompt">Out[68]:</div>
 
 
 
@@ -23586,7 +23631,7 @@ Test score: 0.6030149590820955
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;state==&quot;WA&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -23602,7 +23647,7 @@ Test score: 0.6030149590820955
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[68]:</div>
+    <div class="prompt output_prompt">Out[69]:</div>
 
 
 
@@ -23620,7 +23665,7 @@ Test score: 0.6030149590820955
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">assess_factors</span><span class="p">(</span><span class="n">all_listings_boston</span><span class="p">,</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="n">absolute</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -23648,7 +23693,7 @@ Test score: -9.47563522642263e+22
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[69]:</div>
+    <div class="prompt output_prompt">Out[70]:</div>
 
 
 
@@ -23750,7 +23795,7 @@ Test score: -9.47563522642263e+22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;state==&quot;MA&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -23766,7 +23811,7 @@ Test score: -9.47563522642263e+22
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[70]:</div>
+    <div class="prompt output_prompt">Out[71]:</div>
 
 
 
@@ -23795,7 +23840,7 @@ Test score: -9.47563522642263e+22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings_seattle</span> <span class="o">=</span> <span class="n">all_listings_complete</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;state == &quot;WA&quot;&#39;</span><span class="p">)</span>
@@ -23832,7 +23877,7 @@ Test score: -9.47563522642263e+22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">all_listings_boston</span> <span class="o">=</span> <span class="n">all_listings_complete</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;state == &quot;MA&quot;&#39;</span><span class="p">)</span>
@@ -23869,7 +23914,7 @@ Test score: -9.47563522642263e+22
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">assess_factors</span><span class="p">(</span><span class="n">all_listings_seattle</span><span class="p">,</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="n">absolute</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -23897,7 +23942,7 @@ Test score: 0.6315758558469868
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[73]:</div>
+    <div class="prompt output_prompt">Out[74]:</div>
 
 
 
@@ -23999,7 +24044,7 @@ Test score: 0.6315758558469868
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">assess_factors</span><span class="p">(</span><span class="n">all_listings_boston</span><span class="p">,</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="n">absolute</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -24027,7 +24072,7 @@ Test score: 0.4910826765406764
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[74]:</div>
+    <div class="prompt output_prompt">Out[75]:</div>
 
 
 
